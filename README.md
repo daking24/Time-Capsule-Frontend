@@ -1,16 +1,66 @@
-# React + Vite
+# 🚀 Time Capsule (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> "Send a message across time."
 
-Currently, two official plugins are available:
+Welcome to the Mission Control interface for **Time Capsule**, a full-stack application that allows users to send messages, photos, and videos to their future selves.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live Mission Control**: [Deploy on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/daking24/Time-Capsule-Frontend)
 
-## React Compiler
+## 📡 Mission Overview
+This is the **Frontend** component of the Time Capsule architecture. It provides a premium, "Space/Royal" themed user experience for:
+*   **Composing Letters**: Writing text, uploading images, or recording video/audio messages.
+*   **Time Travel Scheduling**: Selecting a delivery date in the future.
+*   **Flight Logs**: A dashboard to track sealed capsules and review delivered ones.
+*   **Identity Management**: Login/Register with JWT authentication.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+*   **Core**: React 18, Vite
+*   **Styling**: TailwindCSS, CSS Variables (Royal Gold/Deep Space Blue theme)
+*   **Motion**: Framer Motion (Page transitions, loading animations)
+*   **Routing**: React Router DOM v6
+*   **State**: Context API (AuthContext)
+*   **Date**: Date-fns, React Datepicker
+*   **Media**: React Media Recorder
 
-## Expanding the ESLint configuration
+## ⚙️ Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/daking24/Time-Capsule-Frontend.git
+    cd Time-Capsule-Frontend
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Configuration**
+    Create a `.env` file in the root:
+    ```env
+    VITE_API_BASE_URL=http://localhost:8000
+    ```
+    *(Note: For production, this should point to your Render backend URL)*
+
+4.  **Launch Mission**
+    ```bash
+    npm run dev
+    ```
+    Access via `http://localhost:5173`.
+
+## 🚢 Deployment (Vercel)
+
+This project is optimized for deployment on **Vercel**.
+
+1.  Push code to GitHub.
+2.  Import project in Vercel.
+3.  **Critical**: Set the Environment Variable in Vercel:
+    *   `VITE_API_BASE_URL`: `https://your-backend-service.onrender.com`
+4.  Deploy!
+
+## 🤝 Backend Companion
+This frontend requires the **Time Capsule Backend** to function (User auth, database storage, email scheduling).
+*   **Backend Repo**: [Time-Capsule-Backend](https://github.com/daking24/Time-Capsule-Backend)
+
+---
+*Built with 💫 by Daking24*
