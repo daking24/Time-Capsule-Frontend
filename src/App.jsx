@@ -32,18 +32,6 @@ function ProtectedRoute({ children }) {
 function AppRoutes() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [hasEntered, setHasEntered] = useState(localStorage.getItem('has_entered') === 'true');
-
-  const handleEnter = () => {
-      localStorage.setItem('has_entered', 'true');
-      setHasEntered(true);
-  };
-
-  // If user hasn't seen the intro, force Landing Page (unless they are logged in - optional optimization)
-  if (!hasEntered) {
-      return <LandingPage onEnter={handleEnter} />;
-  }
-
   return (
     <Routes>
         {/* Public Routes */}
@@ -56,9 +44,23 @@ function AppRoutes() {
             element={!user ? <div className="min-h-screen bg-royal-gradient flex items-center justify-center p-4"><Register switchToLogin={() => navigate('/login')} /></div> : <Navigate to="/" />} 
         />
 
-        {/* Protected Routes (Wrapped in Layout) */}
+        {/* Root Route: Landing Page (Public) vs Home (Protected) */}
+        <Route 
+            path="/" 
+            element={
+                user ? (
+                    <Layout>
+                        <Home />
+                    </Layout>
+                ) : (
+                    <LandingPage onEnter={() => navigate('/login')} />
+                )
+            } 
+        />
+
+        {/* Protected Routes */}
         <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
-            <Route path="/" element={<Home />} />
+            {/* Home is now handled above at / */}
             <Route path="/compose" element={<Compose />} />
             <Route path="/dashboard" element={<Dashboard onBack={() => navigate('/')} />} />
             <Route path="/profile" element={<Profile />} />
