@@ -5,7 +5,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <main className="w-full max-w-2xl mt-12 flex flex-col items-center text-center space-y-8 animate-float">
+    <main className="w-full max-w-2xl mt-12 flex flex-col items-center text-center space-y-8">
       <div className="space-y-4">
         <h2 className="text-4xl md:text-6xl font-serif text-royal-gold drop-shadow-lg">
           Send a Letter to the Future
