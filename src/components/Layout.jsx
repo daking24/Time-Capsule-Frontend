@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-export default function Layout() {
+export default function Layout({ children }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ export default function Layout() {
       </header>
 
       {/* Main Content */}
-      <Outlet />
+      {children || <Outlet />}
 
       <footer className="mt-auto py-6 text-royal-muted text-sm">
         &copy; {new Date().getFullYear()} TimeCapsule. Preserving memories for tomorrow.
