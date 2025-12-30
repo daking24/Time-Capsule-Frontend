@@ -178,13 +178,23 @@ export default function Login({ switchToRegister }) {
                     >
                         {isLoading ? 'Verifying...' : 'Unlock Vault'}
                     </button>
-                    <button 
-                        type="button" 
-                        onClick={() => setStep('email')} 
-                        className="w-full text-sm text-gray-500 hover:text-white mt-4"
-                    >
-                        Try different email
-                    </button>
+                    <div className="flex flex-col space-y-3 mt-4">
+                        <button 
+                            type="button" 
+                            onClick={handleRequestCode} 
+                            disabled={isLoading}
+                            className="w-full text-xs text-royal-gold/70 hover:text-royal-gold uppercase tracking-wider transition-colors"
+                        >
+                            Resend Code
+                        </button>
+                        <button 
+                            type="button" 
+                            onClick={() => setStep('email')} 
+                            className="w-full text-sm text-gray-500 hover:text-white"
+                        >
+                            Try different email
+                        </button>
+                    </div>
                 </form>
             )}
 
